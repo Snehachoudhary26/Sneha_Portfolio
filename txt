@@ -1,0 +1,1 @@
+cd "/Users/snehachoudhary/Library/Mobile Documents/com~apple~CloudDocs/Sneha_Portfolio" open index.html

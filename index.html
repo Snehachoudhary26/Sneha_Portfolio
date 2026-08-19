@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sneha Choudhary — AI Application Builder &amp; Full-Stack Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet"/>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Interactive Sparkle Cursor -->
+  <canvas id="cursorCanvas"></canvas>
+
+  <!-- Floating Butterflies & Bubbles -->
+  <div id="butterflyGarden"></div>
+  <div id="bubbleHaven"></div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       STAGE 1: CLOSED STORYBOOK COVER
+       ══════════════════════════════════════════════════════════════ -->
+  <div id="bookCoverStage" class="cover-stage">
+    <div class="storybook-cover-card" onclick="startPageTurn()">
+      
+      <img src="front_book.png" alt="Cover" class="cover-bg-image" onerror="this.style.display='none'"/>
+      
+      <div class="spine-gradient"></div>
+      <div class="cover-gold-border"></div>
+
+      <div class="floral-corner top-left-flowers">🌸</div>
+      <div class="floral-corner top-right-flowers">🌺</div>
+      <div class="floral-corner bottom-left-flowers">🌷</div>
+      <div class="floral-corner bottom-right-flowers">🌸</div>
+
+      <div class="cover-body">
+        <div class="cover-eyebrow">W E L C O M E &nbsp; T O<br>M Y &nbsp; P O R T F O L I O</div>
+        <div class="cover-heart">♥</div>
+        
+        <h1 class="cover-author-name">
+          <span class="first-name">Sneha</span><br>
+          <span class="last-name">Choudhary</span>
+        </h1>
+        
+        <div class="cover-role-badge">
+          <span class="sparkle-gold">✦</span>
+          <span class="role-text">AI Application Builder</span>
+          <span class="sparkle-gold">✦</span>
+        </div>
+
+        <p class="cover-bio-intro">
+          A final-year Computer Science student passionate about building AI-powered web and mobile products that solve real-world problems and create meaningful impact.
+        </p>
+
+        <div class="cover-open-trigger">
+          <div class="open-book-icon">
+            <i class="fa-solid fa-book-open-reader"></i>
+          </div>
+          <span class="explore-text">Opening your storybook...</span>
+          <div class="auto-timer-bar">
+            <div id="timerProgress" class="timer-progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       STAGE 2: 3D PAGE-FLIP TRANSITION
+       ══════════════════════════════════════════════════════════════ -->
+  <div id="pageFlipOverlay" class="page-flip-overlay">
+    <div class="flip-book-3d">
+      <div class="leaf leaf-1"></div>
+      <div class="leaf leaf-2"></div>
+      <div class="leaf leaf-3"></div>
+      <div class="leaf leaf-4"></div>
+      <div class="leaf leaf-5"></div>
+    </div>
+    <div class="petals-container" id="petalsContainer"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       STAGE 3: MAIN PORTFOLIO
+       ══════════════════════════════════════════════════════════════ -->
+  <div id="mainPortfolio" class="portfolio-container hidden">
+
+    <!-- Top Navigation Bar -->
+    <nav id="navbar" class="main-navbar">
+      <a class="nav-brand" href="#hero">Sneha Choudhary</a>
+      <ul class="nav-links">
+        <li><a href="#hero">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#recognition">Milestones</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#beliefs">Beliefs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="nav-resume-btn" href="Sneha_Choudhary_Resume.pdf" target="_blank" rel="noopener">
+        <i class="fa-solid fa-file-lines"></i> Resume
+      </a>
+    </nav>
+
+    <!-- Hero Section (Open Book Spread) -->
+    <section id="hero" class="hero-book-section">
+      <div class="open-book-spread">
+        
+        <div class="hero-content">
+          <div class="hero-greeting">Hi, I'm</div>
+          <h1 class="hero-name">
+            <span class="first-name">Sneha</span> <span class="last-name">Choudhary</span>
+          </h1>
+          <div class="hero-role-tag">
+            <span class="sparkle-gold">✦</span> AI Application Builder <span class="sparkle-gold">✦</span>
+          </div>
+
+          <div class="hero-text-block">
+            <p>
+              I didn't grow up dreaming in code. I grew up curious — about how things work, why systems break, and what it takes to fix them. That curiosity is what eventually pulled me into computer science.
+            </p>
+            <p>
+              I'm a final-year Computer Science student at RGPV Bhopal. I started with the fundamentals — data structures, algorithms, web development — and kept asking "what if I built this myself?" That question turned into <strong>500+ LeetCode problems solved (1874 rating)</strong>, five shipped projects, and a growing comfort with everything from React frontends to Flutter mobile apps to Gemini-powered AI features.
+            </p>
+            <p>
+              Somewhere along the way, AI stopped being a buzzword and became a tool I actually use — to build smarter chatbots, predict prices with machine learning, and make apps that genuinely help people. I've interned in Java development, data science, and spent time learning Linux and cybersecurity fundamentals, because I'd rather understand a system end-to-end than just one layer of it.
+            </p>
+            <p>
+              I'm currently looking for opportunities where I can keep building things that matter — and keep learning faster than I thought possible.
+            </p>
+          </div>
+
+          <div class="hero-action-buttons">
+            <a href="#projects" class="btn-pastel-primary"><i class="fa-solid fa-eye"></i> See my work</a>
+            <a href="#contact" class="btn-pastel-secondary"><i class="fa-solid fa-paper-plane"></i> Get in touch</a>
+          </div>
+
+          <a href="#photo-showcase" class="hero-scroll-cue">Explore my journey <i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portrait Showcase Section -->
+    <section id="photo-showcase" class="portrait-section">
+      <div class="section-inner text-center">
+        <div class="portrait-card-wrap">
+          <div class="portrait-glow-frame">
+            <img src="sneha.jpeg" alt="Sneha Choudhary" class="portrait-photo" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80'"/>
+          </div>
+          <div class="portrait-details">
+            <h3>Sneha Choudhary</h3>
+            <p class="portrait-sub">Data Science &amp; Full Stack Software Engineer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         1. PROJECTS SECTION (BEFORE EXPERIENCE)
+         ══════════════════════════════════════════════════════════════ -->
+    <section id="projects" class="content-section alt-bg">
+      <div class="section-inner">
+        <div class="text-center" style="margin-bottom: 36px;">
+          <div class="section-eyebrow">𝇊 &nbsp; MY WORK &nbsp; 𝇊</div>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-sub" style="margin: 0 auto;">A collection of ideas turned into real products. Each project taught me something new.</p>
+        </div>
+
+        <div class="projects-grid-container">
+
+          <!-- 01 HAQ Agent -->
+          <div class="project-showcase-card">
+            <div class="proj-thumb-wrap">
+              <img src="Haq-Agent.png" alt="HAQ Agent" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill"><i class="fa-solid fa-circle"></i> Live</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">01</div>
+              <h3 class="proj-name">HAQ Agent</h3>
+              <div class="proj-subtitle">AI Health &amp; Rights Assistant — Meesho AI Hackathon</div>
+              <div class="proj-tags">TypeScript &middot; Node.js &middot; React &middot; Gemini API &middot; FastAPI &middot; Vercel</div>
+              <p class="proj-summary">
+                Conversational AI health and legal assistant built for the Meesho AI Hackathon — shortlisted Top 500 out of 36,000+ national participants. Users ask queries and receive personalized, evidence-based AI responses powered by Gemini API and Agentic AI in real time.
+              </p>
+              <div class="proj-links">
+                <a href="https://github.com/Snehachoudhary26/HAQ-agent" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://haq-agent-gamma.vercel.app/" target="_blank" rel="noopener" class="plink"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02 CampusBridge -->
+          <div class="project-showcase-card">
+            <div class="proj-thumb-wrap">
+              <img src="Campus-Bridge.png" alt="CampusBridge" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill"><i class="fa-solid fa-circle"></i> Live</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">02</div>
+              <h3 class="proj-name">CampusBridge</h3>
+              <div class="proj-subtitle">AI Campus Marketplace</div>
+              <div class="proj-tags">FastAPI &middot; React &middot; PostgreSQL &middot; Gemini API &middot; Node.js</div>
+              <p class="proj-summary">
+                AI-powered campus marketplace built exclusively for RGPV students, featuring an ARIA chatbot, an ML price predictor with 96.76% R² accuracy, and an automated spam detector for safe peer-to-peer commerce.
+              </p>
+              <div class="proj-links">
+                <a href="https://github.com/Snehachoudhary26/Compus-Tracker-LOST---FOUND-REPORT" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://campusbridge-one.vercel.app/" target="_blank" rel="noopener" class="plink"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03 RoomSync -->
+          <div class="project-showcase-card">
+            <div class="proj-thumb-wrap">
+              <img src="Roomsync.png" alt="RoomSync" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill"><i class="fa-solid fa-circle"></i> Live</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">03</div>
+              <h3 class="proj-name">RoomSync</h3>
+              <div class="proj-subtitle">Smart Roommate &amp; Flat Compatibility Matching</div>
+              <div class="proj-tags">React &middot; Node.js &middot; Express &middot; MongoDB &middot; Socket.io</div>
+              <p class="proj-summary">
+                A full-stack matching platform designed for students and young professionals to discover compatible flatmates based on lifestyle preferences, budget constraints, and integrated real-time chat.
+              </p>
+              <div class="proj-links">
+                <a href="https://github.com/Snehachoudhary26/Roomsync" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://github.com/Snehachoudhary26/Roomsync" target="_blank" rel="noopener" class="plink"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 PathForge -->
+          <div class="project-showcase-card highlight-card">
+            <div class="proj-thumb-wrap">
+              <img src="Pathforage.png" alt="PathForge" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill app-pill"><i class="fa-solid fa-mobile-screen"></i> Android App</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">04</div>
+              <h3 class="proj-name">PathForge</h3>
+              <div class="proj-subtitle">Career Roadmap &amp; AI Skill Navigation App</div>
+              <div class="proj-tags">Flutter &middot; Dart &middot; Firebase Suite &middot; Android SDK &middot; AI Engine</div>
+              <p class="proj-summary">
+                An offline-first Android mobile application providing developers with customized career roadmaps, dynamic milestone tracking, and AI-assisted skill progression recommendations.
+              </p>
+              <div class="proj-links">
+                <a href="https://drive.google.com/file/d/1UjsErdvXDOliVomhHr7TAevRcuiajW_x/view" target="_blank" rel="noopener" class="plink download-plink"><i class="fa-solid fa-download"></i> Download App (APK)</a>
+                <a href="https://github.com/Snehachoudhary26/pathforge" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 OmniAgent -->
+          <div class="project-showcase-card">
+            <div class="proj-thumb-wrap">
+              <img src="OmniAgent.png" alt="OmniAgent" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill ai-pill"><i class="fa-solid fa-robot"></i> Multi-Agent</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">05</div>
+              <h3 class="proj-name">OmniAgent</h3>
+              <div class="proj-subtitle">Autonomous Multi-Agent Task Orchestrator</div>
+              <div class="proj-tags">Python &middot; LangChain &middot; FastAPI &middot; Gemini API &middot; React</div>
+              <p class="proj-summary">
+                An autonomous multi-agent execution framework capable of decomposing complex natural language prompts into subroutines, conducting autonomous web research, and compiling clean reports.
+              </p>
+              <div class="proj-links">
+                <a href="https://github.com/Snehachoudhary26/OmniAgent" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://github.com/Snehachoudhary26/OmniAgent" target="_blank" rel="noopener" class="plink"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06 Campus Tracker -->
+          <div class="project-showcase-card">
+            <div class="proj-thumb-wrap">
+              <img src="Campus-track.png" alt="Campus Tracker" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill"><i class="fa-solid fa-circle"></i> Live</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">06</div>
+              <h3 class="proj-name">Campus Tracker (Lost &amp; Found)</h3>
+              <div class="proj-subtitle">Computer Vision Item Recovery Portal</div>
+              <div class="proj-tags">React &middot; Node.js &middot; OpenCV &middot; Cloudinary &middot; PostgreSQL</div>
+              <p class="proj-summary">
+                An automated campus lost-and-found portal employing computer vision and image similarity search to instantly match lost item reports with newly discovered articles across campus.
+              </p>
+              <div class="proj-links">
+                <a href="https://github.com/Snehachoudhary26/Compus-Tracker-LOST---FOUND-REPORT" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://github.com/Snehachoudhary26/Compus-Tracker-LOST---FOUND-REPORT" target="_blank" rel="noopener" class="plink"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 07 College Finder India -->
+          <div class="project-showcase-card">
+            <div class="proj-thumb-wrap">
+              <img src="College-Finder.png" alt="College Finder India" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill"><i class="fa-solid fa-circle"></i> Live</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">07</div>
+              <h3 class="proj-name">College Finder India</h3>
+              <div class="proj-subtitle">Higher Education Recommendation Engine</div>
+              <div class="proj-tags">React.js &middot; Python &middot; FastAPI &middot; Tailwind CSS &middot; Vercel</div>
+              <p class="proj-summary">
+                A nationwide college exploration portal offering rank matching, fee comparisons, cut-off insights, and AI-assisted filtering across thousands of accredited Indian institutions.
+              </p>
+              <div class="proj-links">
+                <a href="https://github.com/Snehachoudhary26/College-Finder-India" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://college-finder-india-three.vercel.app/" target="_blank" rel="noopener" class="plink"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 08 Student Placement Prediction -->
+          <div class="project-showcase-card">
+            <div class="proj-thumb-wrap">
+              <img src="Student-placement.png" alt="Student Placement Prediction" class="proj-thumb-img" onerror="this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80'"/>
+              <span class="proj-live-pill ml-pill"><i class="fa-solid fa-chart-line"></i> ML Project</span>
+            </div>
+            <div class="proj-info-wrap">
+              <div class="proj-num">08</div>
+              <h3 class="proj-name">Student Campus Placement Prediction</h3>
+              <div class="proj-subtitle">Academic Machine Learning Classification Model</div>
+              <div class="proj-tags">Python &middot; scikit-learn &middot; Random Forest &middot; Pandas &middot; Streamlit</div>
+              <p class="proj-summary">
+                A supervised learning model trained on historical academic and demographic datasets to evaluate student placement probabilities and identify critical performance bottlenecks.
+              </p>
+              <div class="proj-links">
+                <a href="https://github.com/Snehachoudhary26/Student-Campus-Placement-Prediction-Academic-project.-ML" target="_blank" rel="noopener" class="plink"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://github.com/Snehachoudhary26/Student-Campus-Placement-Prediction-Academic-project.-ML" target="_blank" rel="noopener" class="plink"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live site</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         2. EXPERIENCE SECTION (AFTER PROJECTS)
+         ══════════════════════════════════════════════════════════════ -->
+    <section id="experience" class="content-section">
+      <div class="section-inner">
+        <div class="section-eyebrow">Work History</div>
+        <h2 class="section-title">Experience &amp; Internships</h2>
+        <p class="section-sub">Professional internships and technical training across Android, Java, Data Science, and Cybersecurity.</p>
+
+        <div class="experience-stack-list">
+
+          <!-- 01 Atavishaala -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Android Developer Intern</h3>
+                <div class="exp-company">Atavishaala</div>
+              </div>
+              <span class="exp-badge">Remote</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Developed Android application features using Java and Kotlin, contributing to UI components and integrating REST APIs for seamless data sync.</li>
+              <li>Collaborated with the development team on debugging, testing, and improving overall app performance and user experience.</li>
+            </ul>
+          </div>
+
+          <!-- 02 Infosys Springboard -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Java Intern — Batch 6.0</h3>
+                <div class="exp-company">Infosys Springboard</div>
+              </div>
+              <span class="exp-badge">Sep 2025 – Dec 2025</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Completed an intensive Java training program, scored in the top 15% of the batch, and secured selection for the Batch 6.0 internship.</li>
+              <li>Delivered Java development assignments covering object-oriented design patterns, data structure implementation, and unit testing with JUnit.</li>
+            </ul>
+          </div>
+
+          <!-- 03 Edunet Foundation -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Data Science Project Intern</h3>
+                <div class="exp-company">Edunet Foundation</div>
+              </div>
+              <span class="exp-badge">Jan 2025 – Feb 2025</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Analysed 10 years of Indian agriculture data using Python with pandas, matplotlib, and seaborn libraries to generate executive-level policy insights.</li>
+            </ul>
+          </div>
+
+          <!-- 04 InternPE -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Marketing Intern</h3>
+                <div class="exp-company">InternPE</div>
+              </div>
+              <span class="exp-badge">Jul 2025 – Aug 2025</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Planned and executed three digital campaigns that achieved a 20% increase in student engagement for company programs and events.</li>
+            </ul>
+          </div>
+
+          <!-- 05 CyberGyan, C-DAC -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Linux &amp; Cybersecurity Training</h3>
+                <div class="exp-company">CyberGyan, C-DAC</div>
+              </div>
+              <span class="exp-badge">Jul 2024 – Sep 2024</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Completed 200 hours of practical Linux system administration and Kali Linux training covering network security and penetration testing basics.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         RECOGNITION / MILESTONES
+         ══════════════════════════════════════════════════════════════ -->
+    <section id="recognition" class="content-section alt-bg">
+      <div class="section-inner">
+        <div class="section-eyebrow">Recognition</div>
+        <h2 class="section-title">A few milestones along the way.</h2>
+        
+        <div class="milestones-grid">
+          
+          <div class="milestone-card">
+            <div class="m-icon">🥇</div>
+            <div class="m-content">
+              <h4>Meesho AI Hackathon — Top 500 / 36,000+</h4>
+              <p>Shortlisted in Top 500 out of 36,000+ national participants. Built HAQ Agent — an AI health assistant using Gemini API and Agentic AI architecture.</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="m-icon">🏆</div>
+            <div class="m-content">
+              <h4>Smart India Hackathon 2024</h4>
+              <p>Selected nationally; led a 4-member team on a Geolocation-Based Attendance Verification System.</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="m-icon">🤖</div>
+            <div class="m-content">
+              <h4>Google Gen AI Exchange Program</h4>
+              <p>Selected by Google Cloud &amp; Hack2skill for AI mentorship — Top 50 rank nationally.</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="m-icon">🌟</div>
+            <div class="m-content">
+              <h4>Google Student Ambassador</h4>
+              <p>Promoted Google products and the Gemini AI platform across campus.</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="m-icon">☁️</div>
+            <div class="m-content">
+              <h4>Google Cloud Arcade Facilitator</h4>
+              <p>Completed Cloud, ML &amp; Gen AI program — earned Legend tier recognition.</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="m-icon">💻</div>
+            <div class="m-content">
+              <h4>500+ LeetCode Problems</h4>
+              <p>Focused on Dynamic Programming, with multiple streak badges. Codeforces Rating 1559, LeetCode Rating 1874.</p>
+            </div>
+          </div>
+
+          <div class="milestone-card">
+            <div class="m-icon">📜</div>
+            <div class="m-content">
+              <h4>Google Skills Certifications</h4>
+              <p>Five certifications across Cloud Computing, AI, ML, and Data Analytics.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="content-section">
+      <div class="section-inner">
+        <div class="section-eyebrow">Toolkit</div>
+        <h2 class="section-title">Skills &amp; Technologies</h2>
+        <p class="section-sub">A technical toolkit built across production applications, hackathons, and AI research.</p>
+
+        <div class="skills-card-grid">
+          <div class="skill-group-card">
+            <h4>Languages</h4>
+            <div class="skill-pills">
+              <span>JavaScript (ES6+)</span><span>TypeScript</span><span>Python</span><span>Java</span><span>SQL</span><span>Dart</span><span>C++</span>
+            </div>
+          </div>
+          <div class="skill-group-card">
+            <h4>Frontend</h4>
+            <div class="skill-pills">
+              <span>React.js</span><span>Next.js</span><span>Tailwind CSS</span><span>Framer Motion</span><span>HTML5 / CSS3</span>
+            </div>
+          </div>
+          <div class="skill-group-card">
+            <h4>Backend &amp; APIs</h4>
+            <div class="skill-pills">
+              <span>Node.js</span><span>Express.js</span><span>FastAPI</span><span>RESTful APIs</span><span>JWT Auth</span><span>Socket.io</span>
+            </div>
+          </div>
+          <div class="skill-group-card">
+            <h4>Mobile</h4>
+            <div class="skill-pills">
+              <span>Flutter</span><span>Dart</span><span>Firebase Suite</span><span>Android SDK</span>
+            </div>
+          </div>
+          <div class="skill-group-card">
+            <h4>AI &amp; Machine Learning</h4>
+            <div class="skill-pills">
+              <span>Gemini API</span><span>Agentic AI</span><span>RAG</span><span>scikit-learn</span><span>Random Forest</span><span>OpenCV</span><span>LangChain</span>
+            </div>
+          </div>
+          <div class="skill-group-card">
+            <h4>Databases &amp; Cloud</h4>
+            <div class="skill-pills">
+              <span>MongoDB</span><span>PostgreSQL</span><span>MySQL</span><span>Firestore</span><span>Vercel</span><span>Render</span><span>Google Cloud</span><span>Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Beliefs Section -->
+    <section id="beliefs" class="content-section alt-bg">
+      <div class="section-inner">
+        <div class="section-eyebrow">Philosophy</div>
+        <h2 class="section-title">Core Principles</h2>
+        
+        <div class="beliefs-list">
+          <div class="belief-item">
+            <div class="belief-num">01</div>
+            <div class="belief-content">
+              <h3>Solve real human problems first, pick tools second</h3>
+              <p>Technology is a means to an end. The best code is the code that solves a tangible frustration for a real person with simplicity and speed.</p>
+            </div>
+          </div>
+          <div class="belief-item">
+            <div class="belief-num">02</div>
+            <div class="belief-content">
+              <h3>Understand systems end-to-end</h3>
+              <p>From low-level OS kernels and network packets to responsive React hooks and distributed databases — mastering full systems creates resilient software.</p>
+            </div>
+          </div>
+          <div class="belief-item">
+            <div class="belief-num">03</div>
+            <div class="belief-content">
+              <h3>Consistency beats intensity</h3>
+              <p>500+ LeetCode problems, regular open-source commits, and daily competitive coding build the muscle memory required for engineering excellence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         FOOTER / CONTACT (MATCHING IMAGE 2 STRUCTURE IN PASTEL THEME)
+         ══════════════════════════════════════════════════════════════ -->
+    <footer id="contact" class="portfolio-footer-section">
+      <div class="footer-container">
+        
+        <div class="footer-eyebrow">LET'S CONNECT</div>
+        <h2 class="footer-headline">Building something interesting? Let's talk.</h2>
+        <p class="footer-subheadline">Open to internships, collaborations, and projects worth building.</p>
+
+        <a href="mailto:snehachoudhary2620@gmail.com" class="footer-email-button">
+          snehachoudhary2620@gmail.com
+        </a>
+
+        <div class="footer-social-row">
+          <a href="https://github.com/Snehachoudhary26" target="_blank" rel="noopener" class="footer-social-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/sneha-choudhary-7891812a0/" target="_blank" rel="noopener" class="footer-social-icon" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://leetcode.com/u/sneha_choudhary26/" target="_blank" rel="noopener" class="footer-social-icon" title="LeetCode (1874)">
+            <i class="fa-solid fa-code"></i>
+          </a>
+          <a href="https://www.codechef.com/users/sneha_2620" target="_blank" rel="noopener" class="footer-social-icon" title="CodeChef">
+            <i class="fa-solid fa-terminal"></i>
+          </a>
+          <a href="https://x.com/Sneh_a26" target="_blank" rel="noopener" class="footer-social-icon" title="Twitter / X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+
+        <div class="footer-bottom-credits">
+          Built by <span class="author-highlight">Sneha Choudhary</span> &middot; RGPV Bhopal &middot; 2026 &middot; <a href="#" onclick="reopenCover(); return false;" class="cover-reopen-link">Return to Cover</a>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
