@@ -1,14 +1,15 @@
 /* ══════════════════════════════════════════════════════════════
-   SNEHA CHOUDHARY — AUTOMATIC TIMERS & SPARKLE ENGINE
+   SNEHA CHOUDHARY — 8-SECOND COVER TIMER & ANIMATION ENGINE
    ══════════════════════════════════════════════════════════════ */
 
 let autoTimer = null;
 let isOpening = false;
 
 function startAutoSequence() {
+  // Wait 8 seconds on the cover page so visitors can comfortably read everything
   autoTimer = setTimeout(() => {
     startPageTurn();
-  }, 3000); // 3 seconds on cover
+  }, 8000); 
 }
 
 function startPageTurn() {
@@ -23,14 +24,14 @@ function startPageTurn() {
   // Fade out cover
   coverStage.classList.add("fade-out");
 
-  // Show 3D flip animation for 2.5s
+  // Show 3D flip animation
   setTimeout(() => {
     coverStage.style.display = "none";
     flipOverlay.classList.add("active");
     spawnPetals();
   }, 350);
 
-  // Smoothly unveil main portfolio
+  // Smoothly unveil main website
   setTimeout(() => {
     flipOverlay.classList.remove("active");
     mainPortfolio.classList.remove("hidden");
