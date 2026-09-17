@@ -67,7 +67,7 @@ function spawnPetals() {
   }
 }
 
-// ── Interactive Cursor Sparkle Particle Trail (Yellow & Light Blue) ──
+// ── Interactive Cursor Sparkle Particle Trail (#ff6363 & #ffc0f5) ──
 const canvas = document.getElementById("cursorCanvas");
 const ctx = canvas.getContext("2d");
 let particles = [];
@@ -79,30 +79,31 @@ function resizeCanvas() {
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
-const particleColors = ["#FFF3B0", "#FEF08A", "#BAE6FD", "#E0F2FE", "#FFCAD4", "#FFFFFF"];
+// User's exact two colors
+const particleColors = ["#ff6363", "#ffc0f5"];
 
 class CursorSpark {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.size = Math.random() * 3 + 1;
+    this.size = Math.random() * 4 + 2;
     this.color = particleColors[Math.floor(Math.random() * particleColors.length)];
-    this.speedX = (Math.random() - 0.5) * 1.5;
-    this.speedY = (Math.random() - 0.5) * 1.5 - 0.3;
+    this.speedX = (Math.random() - 0.5) * 1.8;
+    this.speedY = (Math.random() - 0.5) * 1.8 - 0.4;
     this.alpha = 1;
-    this.decay = Math.random() * 0.025 + 0.02;
+    this.decay = Math.random() * 0.025 + 0.018;
   }
 
   draw() {
     ctx.save();
     ctx.globalAlpha = this.alpha;
     ctx.fillStyle = this.color;
-    ctx.shadowBlur = 5;
+    ctx.shadowBlur = 8;
     ctx.shadowColor = this.color;
 
     ctx.beginPath();
     for (let i = 0; i < 8; i++) {
-      const radius = i % 2 === 0 ? this.size : this.size / 2.4;
+      const radius = i % 2 === 0 ? this.size : this.size / 2.2;
       const angle = (i * Math.PI) / 4;
       const sx = this.x + Math.cos(angle) * radius;
       const sy = this.y + Math.sin(angle) * radius;
@@ -122,7 +123,8 @@ class CursorSpark {
 }
 
 window.addEventListener("mousemove", (e) => {
-  if (Math.random() > 0.25) {
+  particles.push(new CursorSpark(e.clientX, e.clientY));
+  if (Math.random() > 0.4) {
     particles.push(new CursorSpark(e.clientX, e.clientY));
   }
 });
